@@ -40,20 +40,20 @@
        FB.init({
       appId      : '1450063895107562',                        // App ID from the app dashboard
        });
-       /*
+       
        MessengerExtensions.getUserID(function success(uids) {
         psid = uids.psid;
         }, function error(err) {
          alert("failed");
         });
-    };*/
-    MessengerExtensions.getContext('1450063895107562',function success(context) {
+    };
+    /*MessengerExtensions.getContext('1450063895107562',function success(context) {
       psid = context.psid;
       alert("success!");
     }, function error(err) {
          alert("failed");
     });
-
+*/
     function closeView(){
       MessengerExtensions.requestCloseBrowser(function success() {
       console.log(success)

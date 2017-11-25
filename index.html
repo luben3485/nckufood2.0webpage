@@ -37,12 +37,22 @@
     }(document, 'script', 'Messenger'));
 
      window.extAsyncInit = function() {
-        MessengerExtensions.getUserID(function success(uids) {
+       FB.init({
+      appId      : '14500638951075621450063895107562',                        // App ID from the app dashboard
+       });
+       /*
+       MessengerExtensions.getUserID(function success(uids) {
         psid = uids.psid;
         }, function error(err) {
          alert("failed");
         });
-    };
+    };*/
+    MessengerExtensions.getContext('1450063895107562',function success(thread_context) {
+      psid=thread_context.psid;
+    }, function error(err) {
+         alert("failed");
+    });
+
     function closeView(){
       MessengerExtensions.requestCloseBrowser(function success() {
       console.log(success)

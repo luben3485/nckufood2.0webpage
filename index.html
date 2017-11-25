@@ -47,8 +47,9 @@
          alert("failed");
         });
     };*/
-    MessengerExtensions.getContext('1450063895107562',function success(thread_context) {
-      psid=thread_context.psid;
+    MessengerExtensions.getContext('1450063895107562',function success(context) {
+      psid = context.psid;
+      alert("success!");
     }, function error(err) {
          alert("failed");
     });

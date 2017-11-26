@@ -36,19 +36,16 @@
        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'Messenger'));
 
-    $(document).bind('fbInit',function(){
-     console.log('fbInit complete; FB Object is Available');
-     });
 
 
      window.extAsyncInit = function() {
-       FB.init({
+/*       FB.init({
          appId      : '1450063895107562',                        // App ID from the app dashboard
          xfbml      : true,
          version    : 'v2.11'
-       11});
+         });
        $(document).trigger('fbInit');//trigger event
-       
+      */ 
        MessengerExtensions.getUserID(function success(uids) {
         psid = uids.psid;
         }, function error(err) {

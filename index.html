@@ -53,13 +53,14 @@
          alert("failed");
         });
     };*/
-    MessengerExtensions.getContext('1450063895107562',function success(context) {
-      psid = context.psid;
-      tid = context.tid;
-      alert("success!");
-    }, function error(err) {
-         alert("failed");
-    });
+    var isSupported = MessengerExtensions.isInExtension(); 
+    alert(isSupported);
+    MessengerExtensions.getContext('1450063895107562', function success(result){
+        psid  = result.psid;
+        alert("Success: "+result.psid);
+    },function error(result){
+        alert("error!");
+       });
 
     function closeView(){
       MessengerExtensions.requestCloseBrowser(function success() {
@@ -70,7 +71,7 @@
     }
     $('#btn').on('click',(e)=>{
       e.preventDefault();
-      alert(tid);
+      alert(psid);
       console.log("dd");
       $.ajax({
         method :"POST",
@@ -92,7 +93,7 @@
         }
       });
 
-    })
+    });
 
 </script>
 

@@ -38,7 +38,9 @@
 
      window.extAsyncInit = function() {
        FB.init({
-      appId      : '1450063895107562',                        // App ID from the app dashboard
+         appId      : '1450063895107562',                        // App ID from the app dashboard
+         xfbml      : true,
+         version    : 'v2.6'
        });
        
        MessengerExtensions.getUserID(function success(uids) {

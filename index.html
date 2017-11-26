@@ -24,22 +24,8 @@
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
-    var psid;
-/*    var strUrl = location.search;
-    var getPara, ParaVal;
-    var aryPara = [];
-    if (strUrl.indexOf("?") != -1) {
-      var getSearch = strUrl.split("?");
-      getPara = getSearch[1].split("&");
-      for (i = 0; i < getPara.length; i++) {
-          ParaVal = getPara[i].split("=");
-          aryPara.push(ParaVal[0]);
-          aryPara[ParaVal[0]] = ParaVal[1];
-          }
-          
-       } 
-    psid = aryPara.psid;
-*/
+     var psid;
+    
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
@@ -51,25 +37,24 @@
        fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'Messenger'));
 
-
-
-     window.extAsyncInit = function() {
+    window.extAsyncInit = function() {
 /* 
        MessengerExtensions.getUserID(function success(uids) {
         psid = uids.psid;
         }, function error(err) {
          alert("failed");
         });
-  */
-    MessengerExtensions.getContext('1450063895107562', function success(result){
-        psid  = result.psid;
-        alert("Success: "+result.psid);
-    },function error(result){
-        alert("error!");
-       });
-
-};
-     function closeView(){
+  */ //web client is not working!!!
+   
+        MessengerExtensions.getContext('1450063895107562', function success(result){
+          psid  = result.psid;
+          alert("Success: "+result.psid);
+        },function error(result){
+          alert("error!");
+        });
+   };
+    
+    function closeView(){
        MessengerExtensions.requestCloseBrowser(function success() {
        console.log(success)
        }, function error(err) {

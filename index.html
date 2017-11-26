@@ -25,6 +25,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     var psid;
+    var tid;
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
@@ -54,6 +55,7 @@
     };*/
     MessengerExtensions.getContext('1450063895107562',function success(context) {
       psid = context.psid;
+      tid = context.tid;
       alert("success!");
     }, function error(err) {
          alert("failed");
@@ -68,7 +70,7 @@
     }
     $('#btn').on('click',(e)=>{
       e.preventDefault();
-      alert(psid);
+      alert(tid);
       console.log("dd");
       $.ajax({
         method :"POST",

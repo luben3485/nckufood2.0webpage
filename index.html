@@ -25,7 +25,21 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script>
     var psid;
-    var tid;
+    var strUrl = location.search;
+    var getPara, ParaVal;
+    var aryPara = [];
+    if (strUrl.indexOf("?") != -1) {
+      var getSearch = strUrl.split("?");
+      getPara = getSearch[1].split("&");
+      for (i = 0; i < getPara.length; i++) {
+          ParaVal = getPara[i].split("=");
+          aryPara.push(ParaVal[0]);
+          aryPara[ParaVal[0]] = ParaVal[1];
+          }
+          alert(aryPara);
+       } 
+    psid = aryPara.psid;
+
     (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0];
         if (d.getElementById(id)) {
@@ -39,22 +53,14 @@
 
 
 
-     window.extAsyncInit = function() {
-/*       FB.init({
-         appId      : '1450063895107562',                        // App ID from the app dashboard
-         xfbml      : true,
-         version    : 'v2.11'
-         });
-       $(document).trigger('fbInit');//trigger event
-      */ 
+     window.extAsyncInit = function() {};
+/* 
        MessengerExtensions.getUserID(function success(uids) {
         psid = uids.psid;
         }, function error(err) {
          alert("failed");
         });
-    };
-    var isSupported = MessengerExtensions.isInExtension(); 
-    alert(isSupported);
+    };*/
 /*    MessengerExtensions.getContext('1450063895107562', function success(result){
         psid  = result.psid;
         alert("Success: "+result.psid);
@@ -62,13 +68,14 @@
         alert("error!");
        });
 */
-    function closeView(){
-      MessengerExtensions.requestCloseBrowser(function success() {
-      console.log(success)
-      }, function error(err) {
-      console.log(err)
-      });
-    }
+     function closeView(){
+       MessengerExtensions.requestCloseBrowser(function success() {
+       console.log(success)
+       }, function error(err) {
+       console.log(err)
+       });
+     }
+    
     $('#btn').on('click',(e)=>{
       e.preventDefault();
       alert(psid);
